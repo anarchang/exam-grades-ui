@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
 import GradesList from '../components/GradesList'
-import { updateGrade, updateName } from '../actions'
+import { addGrade, updateGrade, updateName, addError, resetEmptyGrade } from '../actions'
 
 const mapStateToProps = (state) => {
   console.log('GradesListContainer')
   return {
-    grades: state.getIn(['examGrades', 'grades'])
+    grades: state.getIn(['examGrades', 'grades']),
+    emptyGrade: state.getIn(['examGrades', 'emptyGrade'])
   }
 }
 
@@ -17,6 +18,13 @@ const mapDispatchToProps = (dispatch) => {
     },
     onNameChange: (id, name) => {
       dispatch(updateName(id, name))
+    },
+    addEntry: (name, grade) => {
+      dispatch(addGrade(name, grade))
+      dispatch(resetEmptyGrade())
+    },
+    addError: (id, error) => {
+      dispatch(addError(id, error))
     }
   }
 }

@@ -1,4 +1,4 @@
-function addEntry (name, grade) {
+function addGrade (name, grade) {
   return {
     type: 'ADD_ENTRY',
     name,
@@ -22,4 +22,18 @@ function updateGrade (id, grade) {
   }
 }
 
-export { addEntry, updateName, updateGrade }
+function addError (id, error) {
+  return {
+    type: 'ADD_ERROR',
+    id,
+    error
+  }
+}
+
+function resetEmptyGrade () {
+  return {
+    type: 'RESET_EMPTY_GRADE'
+  }
+}
+
+export { addGrade, updateName, updateGrade, addError, resetEmptyGrade }
