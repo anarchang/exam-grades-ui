@@ -1,11 +1,28 @@
 .statistics {
   display: flex;
+  flex-direction: column;
+  margin-left: $spacing-small;
 }
 
 .stat {
+  display: flex;
   flex: 1 1 auto;
+  text-align: right;
+}
+
+.value {
+  flex: 1 3 5%;
+}
+
+.label {
+  flex: 0 1 43%;
 }
 
 .stat:last-child {
-  flex: 3 1 auto;
+  flex: 6 1 auto;
+}
+
+.number {
+  margin-left: $spacing-med;
+  color: $slate;
 }

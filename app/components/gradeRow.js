@@ -66,7 +66,7 @@ class GradeRow extends Component {
     )
 
     const emptyGrade = (
-      <div className="gradeRow">
+      <div className="gradeRow emptyRow">
         <input type="text" value={gradeRecord.name} onChange={handleNameChange} onBlur={handleBlur.bind(this)} className="nameBox rowBox" autoFocus ref={(c) => {
           if (c) {this._emptyRowName = c}
         }}/>
