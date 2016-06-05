@@ -16,11 +16,10 @@ function Statistics({min, max, average}) {
   const averageString = statToString(average)
 
   return (
-    <div className="Statistics">
-      <h1>Statistics</h1>
-      <p>min: {minString}</p>
-      <p>max: {maxString}</p>
-      <p>average: {averageString}</p>
+    <div className="statistics">
+      <div className="stat">min: {minString}</div>
+      <div className="stat">max: {maxString}</div>
+      <div className="stat">average: {averageString}</div>
     </div>
   )
 }

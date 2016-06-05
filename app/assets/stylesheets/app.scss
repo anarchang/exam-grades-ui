@@ -1,3 +1,9 @@
-.failing {
-  border: 1px solid red;
-}
+@import '_reset.scss';
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic|Oswald:300|Raleway:500);
+@import '_variables.scss';
+@import '_typography.scss';
+@import '_layout.scss';
+@import '_gradeslist.scss';
+@import '_stats.scss'
+
+

@@ -3,7 +3,7 @@ import GradesList from '../containers/GradesList'
 import Statistics from '../containers/Statistics'
 
 const App = () => (
-  <div>
+  <div className="content">
     <GradesList />
     <Statistics />
   </div>

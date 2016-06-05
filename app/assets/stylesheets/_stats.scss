@@ -1,0 +1,11 @@
+.statistics {
+  display: flex;
+}
+
+.stat {
+  flex: 1 1 auto;
+}
+
+.stat:last-child {
+  flex: 3 1 auto;
+}

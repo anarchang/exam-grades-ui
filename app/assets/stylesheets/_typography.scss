@@ -1,0 +1,18 @@
+body {
+  color: rgba($slate, .6);
+  font-family: $lato;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $slate;
+  font-family: $oswald;
+}
+
+h1 {
+  font-size: $font-large;
+  line-height: 40px;
+  margin-bottom: $spacing-small;
+}

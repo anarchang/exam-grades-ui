@@ -17,18 +17,26 @@ function GradesList({grades, onGradeChange, onNameChange, addError, emptyGrade, 
     )
   })
 
-  console.log('grade list')
   return (
     <div className="gradesList">
-      <h1>GradesList</h1>
-      {gradesItems}
-      <GradeRow
-        gradeRecord={emptyGrade}
-        id= {-1}
-        onGradeChange={onGradeChange}
-        onNameChange={onNameChange}
-        addError={addError}
-        addEntry={addEntry}/>
+      <h1>Exam Statistics Calculator</h1>
+      <div className="gradeTable">
+        <div className="gradeRow headerRow">
+          <div className="nameBox rowBox">Name</div>
+          <div className="gradeBox rowBox">Grade</div>
+          <div className="rowBox deleteBox">
+          </div>
+          <div className="rowBox errorBox"></div>
+        </div>
+        {gradesItems}
+        <GradeRow
+          gradeRecord={emptyGrade}
+          id= {-1}
+          onGradeChange={onGradeChange}
+          onNameChange={onNameChange}
+          addError={addError}
+          addEntry={addEntry}/>
+      </div>
     </div>
   )
 }
