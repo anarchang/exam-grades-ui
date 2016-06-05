@@ -13,7 +13,7 @@ class GradeRow extends Component {
   }
 
   render () {
-    const {id, gradeRecord, onGradeChange, onNameChange, addError, addEntry} = this.props
+    const {id, gradeRecord, onGradeChange, onNameChange, addError, addEntry, deleteEntry} = this.props
 
     function handleNameChange(event) {
       onNameChange(id, event.target.value)
@@ -35,7 +35,16 @@ class GradeRow extends Component {
       // if both values are set, add a new entry and reset the empty row
       if (gradeRecord.name && gradeRecord.grade != -9999) {
         addEntry(gradeRecord.name, gradeRecord.grade)
-        console.log('handleBlur')
+        if (this._emptyRowName) {
+          this._emptyRowName.focus()
+        }
+      }
+    }
+
+    function handleDelete() {
+      console.log('handleDelete')
+      if(deleteEntry) {
+        deleteEntry(id)
       }
     }
 
@@ -47,12 +56,15 @@ class GradeRow extends Component {
         <input type="text" value={gradeRecord.name} onChange={handleNameChange} className="nameBox" />
         <input type="text" value={gradeRecord.grade} onChange={handleGradeChange} className="gradeBox" />
         <p>{gradeRecord.error}</p>
+        <button onClick={handleDelete}>delete</button>
       </div>
     )
 
     const emptyGrade = (
       <div className="gradeRow">
-        <input type="text" value={gradeRecord.name} onChange={handleNameChange} onBlur={handleBlur.bind(this)} className="nameBox" autoFocus ref={(c) => this._emptyRowName = c}/>
+        <input type="text" value={gradeRecord.name} onChange={handleNameChange} onBlur={handleBlur.bind(this)} className="nameBox" autoFocus ref={(c) => {
+          if (c) {this._emptyRowName = c}
+        }}/>
         <input type="text" value={grade} onChange={handleGradeChange} onBlur={handleBlur.bind(this)} className="gradeBox" />
         <p>{gradeRecord.error}</p>
       </div>
@@ -73,7 +85,8 @@ GradeRow.propTypes = {
   onGradeChange: React.PropTypes.func.isRequired,
   onNameChange: React.PropTypes.func.isRequired,
   addError: React.PropTypes.func.isRequired,
-  addEntry: React.PropTypes.func
+  addEntry: React.PropTypes.func,
+  deleteEntry: React.PropTypes.func
 }
 
 export default GradeRow

@@ -11,11 +11,12 @@ const stateRecord = Immutable.Record({
   emptyGrade: new gradeRecord()
 })
 
-const initialState = new stateRecord({
+var initialState = new stateRecord({
   grades: Immutable.List()
 })
 
 export default function examGrades(state = initialState, action) {
+
   if (action && action.type === 'ADD_ENTRY') {
     const newRecord = new gradeRecord({name: action.name, grade: action.grade})
     return state.update('grades', (grades) => grades.push(newRecord))
@@ -49,7 +50,11 @@ export default function examGrades(state = initialState, action) {
     return state.setIn(['emptyGrade'], new gradeRecord())
   }
 
-  console.log('examGrades')
+  if (action && action.type === 'DELETE_ENTRY') {
+    return state.deleteIn(['grades', action.id])
+  }
 
   return state
 }
+
+export { gradeRecord }

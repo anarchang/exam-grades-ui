@@ -36,4 +36,11 @@ function resetEmptyGrade () {
   }
 }
 
-export { addGrade, updateName, updateGrade, addError, resetEmptyGrade }
+function deleteEntry (id) {
+  return {
+    type: 'DELETE_ENTRY',
+    id
+  }
+}
+
+export { addGrade, updateName, updateGrade, addError, resetEmptyGrade, deleteEntry }

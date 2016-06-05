@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import GradesList from '../components/GradesList'
-import { addGrade, updateGrade, updateName, addError, resetEmptyGrade } from '../actions'
+import { addGrade, updateGrade, updateName, addError, resetEmptyGrade, deleteEntry } from '../actions'
 
 const mapStateToProps = (state) => {
   console.log('GradesListContainer')
@@ -25,6 +25,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     addError: (id, error) => {
       dispatch(addError(id, error))
+    },
+    deleteEntry: (id) => {
+      dispatch(deleteEntry(id))
     }
   }
 }

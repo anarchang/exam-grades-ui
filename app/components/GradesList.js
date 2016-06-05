@@ -2,7 +2,7 @@ import React from 'react'
 import GradeRow from './GradeRow'
 import Immutable from 'immutable'
 
-function GradesList({grades, onGradeChange, onNameChange, addError, emptyGrade, addEntry}) {
+function GradesList({grades, onGradeChange, onNameChange, addError, emptyGrade, addEntry, deleteEntry}) {
 
   const gradesItems = grades.map((gradeRecord, index) => {
     return (
@@ -12,7 +12,8 @@ function GradesList({grades, onGradeChange, onNameChange, addError, emptyGrade, 
         id={index}
         onGradeChange={onGradeChange}
         onNameChange={onNameChange}
-        addError={addError}/>
+        addError={addError}
+        deleteEntry={deleteEntry}/>
     )
   })
 
@@ -38,7 +39,8 @@ GradesList.propTypes = {
   onNameChange: React.PropTypes.func.isRequired,
   addError: React.PropTypes.func.isRequired,
   emptyGrade: React.PropTypes.instanceOf(Immutable.Record).isRequired,
-  addEntry: React.PropTypes.func.isRequired
+  addEntry: React.PropTypes.func.isRequired,
+  deleteEntry: React.PropTypes.func.isRequired
 }
 
 export default GradesList
