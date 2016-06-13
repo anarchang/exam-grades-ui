@@ -25,7 +25,6 @@ describe("GradeRow", () => {
       onGradeChange={onGradeChange}
       onNameChange={onNameChange}
       addError={addError}
-      addEntry={addEntry}
       deleteEntry={deleteEntry}
     />
   )
@@ -46,9 +45,7 @@ describe("GradeRow", () => {
       onGradeChange={onGradeChange}
       onNameChange={onNameChange}
       addError={addError}
-      onGradeChange={onGradeChange}
-      onNameChange={onNameChange}
-      addError={addError}
+      deleteEntry={deleteEntry}
     />)
     expect(wrapper.find('.failing').length).to.equal(1)
   })
@@ -61,51 +58,63 @@ describe("GradeRow", () => {
       onGradeChange={onGradeChange}
       onNameChange={onNameChange}
       addError={addError}
-      onGradeChange={onGradeChange}
-      onNameChange={onNameChange}
-      addError={addError}
+      deleteEntry={deleteEntry}
     />)
     expect(wrapper.find('.errorBox').text()).to.equal(invalidRecord.get('error'))
   })
 
   it("grade change handler should be called", () => {
+    const onGradeChange = sinon.spy()
+    const onNameChange = sinon.spy()
+    const addError = sinon.spy()
+    const emptyGrade = new gradeRecord()
+    const addEntry = sinon.spy()
+    const deleteEntry = sinon.spy()
+
     const wrapper = mount(
       <GradeRow
-      id={id}
-      gradeRecord={failingRecord}
-      onGradeChange={onGradeChange}
-      onNameChange={onNameChange}
-      addError={addError}
-      onGradeChange={onGradeChange}
-      onNameChange={onNameChange}
-      addError={addError}
-    />)
+        id={1}
+        gradeRecord={passingRecord}
+        onGradeChange={onGradeChange}
+        onNameChange={onNameChange}
+        addError={addError}
+        deleteEntry={deleteEntry}
+      />
+    )
+
     const gradeField = wrapper.find('.gradeBox').first()
     const textChangeEvent = {target: {value: '89'}}
 
     gradeField.simulate('change', textChangeEvent)
-    expect(onGradeChange.calledOnce)
+    expect(onGradeChange.calledOnce).to.be.true
     expect(addError.calledWith(''))
   })
 
   it("error should be added for an invalid grade", () => {
+    const onGradeChange = sinon.spy()
+    const onNameChange = sinon.spy()
+    const addError = sinon.spy()
+    const emptyGrade = new gradeRecord()
+    const addEntry = sinon.spy()
+    const deleteEntry = sinon.spy()
+
     const wrapper = mount(
       <GradeRow
-      id={id}
-      gradeRecord={failingRecord}
-      onGradeChange={onGradeChange}
-      onNameChange={onNameChange}
-      addError={addError}
-      onGradeChange={onGradeChange}
-      onNameChange={onNameChange}
-      addError={addError}
-    />)
+        id={1}
+        gradeRecord={passingRecord}
+        onGradeChange={onGradeChange}
+        onNameChange={onNameChange}
+        addError={addError}
+        deleteEntry={deleteEntry}
+      />
+    )
     const gradeField = wrapper.find('.gradeBox').first()
     const textChangeEvent = {target: {value: 'a'}}
 
     gradeField.simulate('change', textChangeEvent)
-    expect(onGradeChange.calledOnce)
-    expect(addError.calledWith('Oops. Please enter a number for the grade.'))
+    expect(onGradeChange.calledOnce).to.be.true
+    expect(addError.calledOnce).to.be.true
+    expect(addError.calledWith(id, 'Oops. Please enter a number for the grade.')).to.be.true
   })
 
   it("name change handler should be called", () => {
@@ -124,7 +133,7 @@ describe("GradeRow", () => {
     const textChangeEvent = {target: {value: 'new name'}}
 
     nameField.simulate('change', textChangeEvent)
-    expect(onNameChange.calledOnce)
+    expect(onNameChange.calledOnce).to.equal(true)
   })
 
 })

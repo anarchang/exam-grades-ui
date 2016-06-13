@@ -3,7 +3,6 @@ import GradesList from '../components/GradesList'
 import { addGrade, updateGrade, updateName, addError, resetEmptyGrade, deleteEntry } from '../actions'
 
 const mapStateToProps = (state) => {
-  console.log('GradesListContainer')
   return {
     grades: state.getIn(['examGrades', 'grades']),
     emptyGrade: state.getIn(['examGrades', 'emptyGrade'])
@@ -35,3 +34,4 @@ const mapDispatchToProps = (dispatch) => {
 const GradesListContainer = connect(mapStateToProps, mapDispatchToProps)(GradesList)
 
 export default GradesListContainer
+export { mapStateToProps, mapDispatchToProps }

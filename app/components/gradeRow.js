@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Immutable from 'immutable'
-
+import { NOGRADE } from '../reducers/examGrades'
 class GradeRow extends Component {
   constructor(props) {
     super(props)
@@ -37,7 +37,7 @@ class GradeRow extends Component {
 
     const handleBlur = () => {
       // if both values are set, add a new entry and reset the empty row
-      if (gradeRecord.name && gradeRecord.grade != -9999 && validGrade(gradeRecord.grade)) {
+      if (gradeRecord.name && gradeRecord.grade != NOGRADE && validGrade(gradeRecord.grade)) {
         addEntry(gradeRecord.name, gradeRecord.grade)
         if (this._emptyRowName) {
           this._emptyRowName.focus()
@@ -46,14 +46,13 @@ class GradeRow extends Component {
     }
 
     const handleDelete = () => {
-      console.log('handleDelete')
       if(deleteEntry) {
         deleteEntry(id)
       }
     }
 
-    const grade = gradeRecord.grade === -9999 ? '' : gradeRecord.grade
-    const failing = (gradeRecord.grade != -9999 && gradeRecord.grade < 65)
+    const grade = gradeRecord.grade === NOGRADE ? '' : gradeRecord.grade
+    const failing = (gradeRecord.grade != NOGRADE && gradeRecord.grade < 65)
     const invalid = !validGrade(gradeRecord.grade)
 
     const regularRow = (

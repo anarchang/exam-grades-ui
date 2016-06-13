@@ -19,8 +19,7 @@ const load = storage.createLoader(engine)
 window.store = store
 
 load(store)
-    .then((newState) => {
-      console.log('Loaded state:', newState)
+    .then(() => {
 
       // set up the history before loding the store from storage so that it
       // doesn't get overwritten.
@@ -39,6 +38,10 @@ load(store)
         document.getElementById('root')
       )
     })
-    .catch(() => console.log('Failed to load previous state'))
+    .catch(() =>
+      /* eslint-disable no-console */
+      console.log('Failed to load previous state')
+      /* eslint-disable no-console */
+    )
 
 

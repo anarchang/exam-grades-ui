@@ -3,7 +3,6 @@ import Statistics from '../components/Statistics'
 
 
 const mapStateToProps = (state) => {
-  console.log('Statistics')
   const records = state.getIn(['examGrades', 'grades'])
   const grades = records.map((record) => parseInt(record.grade)).toArray()
 

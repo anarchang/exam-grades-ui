@@ -2,7 +2,6 @@ import merger from 'redux-storage-merger-immutablejs'
 import { gradeRecord } from '../reducers/examGrades'
 
 export default function gradeMerger(oldstate, newstate) {
-  console.log('grade merger')
   const mergedState = merger(oldstate, newstate)
 
   const correctedState = mergedState.updateIn(['examGrades', 'grades'], (grades) => {

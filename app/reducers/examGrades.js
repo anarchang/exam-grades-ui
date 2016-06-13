@@ -1,8 +1,10 @@
 import Immutable from 'immutable'
 
+const NOGRADE = -9999
+
 const gradeRecord = Immutable.Record({
   name: '',
-  grade: -9999,
+  grade: NOGRADE,
   error: ''
 })
 
@@ -57,4 +59,4 @@ export default function examGrades(state = initialState, action) {
   return state
 }
 
-export { gradeRecord }
+export { gradeRecord, stateRecord, NOGRADE }
