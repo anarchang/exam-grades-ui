@@ -17,6 +17,6 @@ npm run build
 
 To run the app, run:
 
-1. serve the app: run `npm run serve`
+1. Serve the app: run `npm run serve` from the root directory of the project
 
-2. open the browser to: http://localhost:8000
+2. Open the browser to: http://localhost:8000
