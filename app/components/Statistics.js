@@ -18,12 +18,12 @@ function Statistics({min, max, average}) {
   return (
     <div className="statistics">
       <div className="stat">
-        <div className="label">min: </div>
+        <div className="label">min:</div>
         <div className="value">{minString}</div>
         <div className="errorBox"></div>
       </div>
       <div className="stat">
-        <div className="label">max: </div>
+        <div className="label">max:</div>
         <div className="value">{maxString}</div>
         <div className="errorBox"></div>
       </div>
