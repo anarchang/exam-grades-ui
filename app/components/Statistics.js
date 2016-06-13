@@ -39,7 +39,7 @@ function Statistics({min, max, average}) {
 Statistics.propTypes = {
   min: React.PropTypes.number.isRequired,
   max: React.PropTypes.number.isRequired,
-  average: React.PropTypes.number.isRequired
+  average: React.PropTypes.string.isRequired
 }
 
 export default Statistics

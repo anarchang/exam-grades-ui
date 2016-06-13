@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
 
   const min = Math.min.apply(null, grades)
   const max = Math.max.apply(null, grades)
-  const average = grades.reduce((reduction, value) => reduction + value, 0) / grades.length
+  const average = (grades.reduce((reduction, value) => reduction + value, 0) / grades.length).toFixed(1)
 
   return {
     min,
@@ -20,3 +20,4 @@ const mapStateToProps = (state) => {
 const StatisticsContainer = connect(mapStateToProps, {})(Statistics)
 
 export default StatisticsContainer
+export { mapStateToProps }

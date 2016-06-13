@@ -22,3 +22,11 @@ To run the app:
 1. Serve the app: run `npm run serve` from the root directory of the project
 
 2. Open the browser to: http://localhost:8000
+
+
+## Unit Tests
+
+To run the unit tests:
+```bash
+npm run test
+```
