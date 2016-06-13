@@ -2,11 +2,19 @@
 
 1. Install Python.
 
-2. Run `npm install` to install dependencies needed for building `live-ui`.
+2. Run `npm install` to install dependencies needed for building `exam-grades-ui`.
+
 
 ## Build the app
 
 To build the javascript, run:
 ```bash
-node_modules/.bin/webpack
+npm run build
 ```
+
+
+## Run the app
+
+To run the app, run:
+1. serve the app: run `npm run serve`
+2. open the browser to: http://localhost:8000
