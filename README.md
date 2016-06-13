@@ -2,7 +2,9 @@
 
 1. Install Python.
 
-2. Run `npm install` to install dependencies needed for building `exam-grades-ui`.
+2. cd into the project directory.
+
+3. Run `npm install` to install dependencies needed for building `exam-grades-ui`.
 
 
 ## Build the app
@@ -15,7 +17,7 @@ npm run build
 
 ## Run the app
 
-To run the app, run:
+To run the app:
 
 1. Serve the app: run `npm run serve` from the root directory of the project
 
